@@ -1,0 +1,45 @@
+﻿@page
+@model TaskAPP.Pages.Estudiantes.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="EliminarEstudiante pt-5">
+    <h1>Eliminar</h1>
+
+    <h3>¿Estas Seguro que quieres eliminar?</h3>
+    <div>
+        <h4>Estudiante</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                Nombre
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Estudiante.Name)
+            </dd>
+            <dt class="col-sm-2">
+                Detalles Tarea
+            </dt>
+            <dd class="col-sm-10">
+                @foreach (var item in Model.Tarea)
+                {
+                    if (item.Id == Model.Estudiante.IdTarea)
+                    {
+                        @Html.DisplayFor(model => item.Description)
+                    }
+                }
+            </dd>
+        </dl>
+
+        <form method="post">
+            <input type="hidden" asp-for="Estudiante.Id" />
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            <button class="btn btn-dark">
+                <a asp-page="./Index">Regresar</a>
+            </button>
+
+        </form>
+    </div>
+</div>

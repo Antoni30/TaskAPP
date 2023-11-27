@@ -1,0 +1,57 @@
+﻿@page
+@model TaskAPP.Pages.Tareas.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="EditTarea pt-5">
+    <h1>Editar</h1>
+
+    <h4>Tarea</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Tarea.Id" />
+                <div class="form-group">
+                    <label asp-for="Tarea.Title" class="control-label">Titulo</label>
+                    <input asp-for="Tarea.Title" class="form-control" />
+                    <span asp-validation-for="Tarea.Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Tarea.Description" class="control-label">Descripción</label>
+                    <input asp-for="Tarea.Description" class="form-control" />
+                    <span asp-validation-for="Tarea.Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Tarea.DeliveryDate" class="control-label">Fecha entrega</label>
+                    <input asp-for="Tarea.DeliveryDate" class="form-control" />
+                    <span asp-validation-for="Tarea.DeliveryDate" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check mt-3 mb-3">
+                    <input type="checkbox" class="form-check-input" id="customCheck1" asp-for="Tarea.Done">
+                    <label class="form-check-label" for="customCheck1">
+                        <span class="checkmark"></span> <!-- Agregamos un elemento span para personalizar el diseño del checkbox -->
+                        Hecho/@Html.DisplayNameFor(model => model.Tarea.Done)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Guardar" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <button class="btn btn-dark mt-2">
+            <a asp-page="./Index">Regresar</a>
+        </button>
+
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,59 @@
+﻿@page
+@model TaskAPP.Pages.Estudiantes.IndexModel
+
+@{
+    ViewData["Title"] = "Estudiante";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary mt-4">
+        <strong>Crear Estudiante</strong>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
+        </svg>
+        </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Tarea
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="tabla">
+@foreach (var item in Model.Estudiante) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                    @foreach (var tarea in Model.Tarea)
+                    {
+                        if (item.IdTarea == tarea.Id)
+                        {
+                            <span>@tarea.Title</span>
+                        }
+                    }
+            </td>
+            <td>
+                   <button class="btn btn-primary">
+                        <a class="text-white" asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
+                    </button>
+                    <button class="btn btn-secondary">
+                        <a class="text-white" asp-page="./Details" asp-route-id="@item.Id">Details</a>
+                    </button>
+                    <button class="btn btn-danger">
+                        <a class="text-white" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                   </button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
