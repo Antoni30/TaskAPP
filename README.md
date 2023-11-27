@@ -1,10 +1,10 @@
-# README: Proyecto ASP.NET Core 3.1 con Razor Pages
+# README: Proyecto ASP.NET 8 con Razor Pages
 
-Este repositorio contiene un proyecto desarrollado con ASP.NET Core 3.1 utilizando Razor Pages. Razor Pages es un enfoque de desarrollo basado en la creación de páginas web en lugar de controladores y vistas separadas, proporcionando una forma sencilla y compacta de construir aplicaciones web.
+Este repositorio contiene un proyecto desarrollado con ASP.NET 8 utilizando Razor Pages. Razor Pages es un enfoque de desarrollo basado en la creación de páginas web en lugar de controladores y vistas separadas, proporcionando una forma sencilla y compacta de construir aplicaciones web.
 
 ## Características del Proyecto
 
-- **Framework:** ASP.NET Core 3.1
+- **Framework:** ASP.NET 8
 - **Tipo de Proyecto:** Razor Pages
 - **Lenguaje de Programación:** C#
 - **Base de Datos:** Entity Framework Core
